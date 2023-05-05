@@ -2,23 +2,15 @@ import { View, TextInput, Button } from 'react-native'
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import PouchDB from 'pouchdb-react-native'
-
+import Realm from 'realm';
 export default function Add() {
-
-  var db = new PouchDB('kittens');
-
-  //Eklenen bilgiler state de tutulacak ve ana ekranda liste halinde gösterilecek
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const dispatch = useDispatch();
-
+  const apikey= 'xpbdsahz';
   const addPerson = () => {
     dispatch({ type: 'ADD_NAME', payload: { name: name } })
     dispatch({ type: 'ADD_PHONE', payload: { phone: phone } })
-    db.info().then(function (info) {
-      console.log(info)
-    })
   }
   return (
     <View>
