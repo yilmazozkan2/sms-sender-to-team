@@ -4,38 +4,12 @@ import { useDispatch } from 'react-redux';
 import Realm from 'realm';
 
 
-export default function Add() {
+export default function Add({navigation}) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [dataSource, setDataSource] = useState();
 
   const dispatch = useDispatch();
   let realm = new Realm();
-
-  useEffect(() => {
-    try {
-      //schema kısmı çözülecek try catch olduğundan hataya yakalanmıyor
-      Realm.open({ schema: [], deleteRealmIfMigrationNeeded: true })
-        .then(realm => {
-          realm.write(() => {
-            realm.delete(realm.objects('Person_Info'));
-            realm.create('Person_Info', values);
-          })
-
-          realm.close();
-        })
-
-    } catch (error) {
-      console.log(error);
-    }
-  }, [])
-
-  readPersonDB = () => {
-    var mydata = realm.objects('Person_Info');
-    setDataSource(
-      mydata
-    );
-  }
 
   addPersonDB = () => {
     realm.write(() => {
@@ -49,6 +23,7 @@ export default function Add() {
       });
 
     });
+
     Alert.alert("Kişi Başarıyla Eklendi.")
   }
 
@@ -56,24 +31,6 @@ export default function Add() {
     dispatch({ type: 'ADD_NAME', payload: { name: name } })
     dispatch({ type: 'ADD_PHONE', payload: { phone: phone } })
   }
-  function goToHomePage(id, name, phone) {
-    this.props.navigation.navigate('PersonList', {
-      ID: id,
-      NAME: name,
-      PHONE: phone,
-    });
-  }
-  const extractor = (_, index) => index.toString();
-
-  const renderItems = ({ item, index }) => (
-    <TouchableOpacity onPress={this.goToHomePage.bind(this, item.id, item.name, item.phone)}>
-      <View>
-        <Text>{item.name}</Text>
-        <Text>{item.phone}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
 
   return (
     <View>
@@ -81,12 +38,7 @@ export default function Add() {
       <TextInput style={{ backgroundColor: 'blue', color: 'white' }} placeholder='Telefon Numarası Giriniz' keyboardType='phone-pad' placeholderTextColor='white' onChangeText={setPhone} />
       <Button title='Ekle' onPress={addPerson} />
       <Button title='EkleDB' onPress={addPersonDB} />
-      <Button title='OkuDB' onPress={readPersonDB} />
-      <FlatList
-        data={dataSource}
-        keyExtractor={extractor}
-        renderItem={renderItems}
-      />
+
     </View>
   )
 }
