@@ -4,32 +4,27 @@ import { useDispatch } from 'react-redux';
 import Realm from 'realm';
 
 
-export default function Add({navigation}) {
+export default function Add({ navigation }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-
   const dispatch = useDispatch();
   let realm = new Realm();
 
-  addPersonDB = () => {
-    realm.write(() => {
 
-      var ID = realm.objects('Person_Info').length + 1;
-
-      realm.create('Person_Info', {
-        id: ID,
-        name: name,
-        phone: phone,
-      });
-
-    });
-
-    Alert.alert("Kişi Başarıyla Eklendi.")
+  var ID = realm.objects('Person_Info').length + 1;
+  const values = {
+    id: ID,
+    name: name,
+    phone: phone,
   }
-
   const addPerson = () => {
     dispatch({ type: 'ADD_NAME', payload: { name: name } })
     dispatch({ type: 'ADD_PHONE', payload: { phone: phone } })
+
+    realm.write(() => {
+      realm.create('Person_Info', values);
+    });
+    Alert.alert("Kişi Başarıyla Eklendi.")
   }
 
   return (
@@ -37,7 +32,6 @@ export default function Add({navigation}) {
       <TextInput style={{ backgroundColor: 'yellow', color: 'white' }} placeholder='İsim Giriniz' placeholderTextColor='white' onChangeText={setName} />
       <TextInput style={{ backgroundColor: 'blue', color: 'white' }} placeholder='Telefon Numarası Giriniz' keyboardType='phone-pad' placeholderTextColor='white' onChangeText={setPhone} />
       <Button title='Ekle' onPress={addPerson} />
-      <Button title='EkleDB' onPress={addPersonDB} />
 
     </View>
   )
