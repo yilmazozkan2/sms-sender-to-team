@@ -2,7 +2,7 @@ import { View, TextInput, Button, Alert } from 'react-native'
 import React, { useState } from 'react'
 import Realm from 'realm';
 
-export default function PersonScreen() {
+export default function AddPersonScreen() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   let realm = new Realm();
