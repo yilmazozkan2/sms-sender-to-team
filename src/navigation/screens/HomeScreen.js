@@ -1,8 +1,9 @@
-import { View, Text, TouchableOpacity,FlatList, Button } from 'react-native'
-import React,{useState} from 'react'
+import { View, Text, TouchableOpacity, FlatList, Button } from 'react-native'
+import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
+import Realm from 'realm';
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen({ navigation }) {
 
   const [dataSource, setDataSource] = useState();
   let realm = new Realm();
@@ -15,8 +16,8 @@ export default function HomeScreen({navigation}) {
   const extractor = (_, index) => index.toString();
 
   const renderItems = ({ item, index }) => (
-    <TouchableOpacity onPress={()=>navigation.navigate('AddPersonScreen')}>
-      <View>
+    <TouchableOpacity onPress={() => navigation.navigate('SendSms')}>
+      <View key={index}>
         <Text>{item.name}</Text>
         <Text>{item.phone}</Text>
       </View>
@@ -25,8 +26,7 @@ export default function HomeScreen({navigation}) {
   return (
     <View>
       <StatusBar style="auto" />
-
-      <Button title='Read' onPress={readPersonDB}/>
+      <Button title='Read' onPress={readPersonDB} />
       <FlatList
         data={dataSource}
         keyExtractor={extractor}
