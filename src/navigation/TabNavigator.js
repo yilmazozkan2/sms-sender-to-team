@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MainStackNavigator, ContactStackNavigator } from "./StackNavigator";
+import { MainStackNavigator, AddPersonStackNavigator } from "./StackNavigator";
 const Tab = createBottomTabNavigator();
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -36,7 +36,7 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen name="AddPersonScreen" component={ContactStackNavigator}
+      <Tab.Screen name="AddPersonScreen" component={AddPersonStackNavigator}
       options={{
         tabBarLabel: 'Kişi Ekle',
         tabBarIcon: ({ color }) => (

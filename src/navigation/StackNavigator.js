@@ -1,8 +1,8 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
-import SendSMSScreen from './screens/SendSMSScreen';
 import AddPersonScreen from './screens/AddPersonScreen';
+import SendScreen from './screens/SendScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,11 +10,11 @@ const MainStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="SendSms" component={SendSMSScreen} />
+        <Stack.Screen name="SendSMS" component={SendScreen} />
       </Stack.Navigator>
     );
   }
-  const ContactStackNavigator = () => {
+  const AddPersonStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle}>
         <Stack.Screen name="AddPerson" component={AddPersonScreen} />
@@ -30,4 +30,4 @@ const screenOptionStyle = {
     headerBackTitle: "Back",
 };
 
-export { MainStackNavigator, ContactStackNavigator };
+export { MainStackNavigator, AddPersonStackNavigator };

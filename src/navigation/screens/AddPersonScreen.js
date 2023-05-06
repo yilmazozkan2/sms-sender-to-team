@@ -15,9 +15,6 @@ export default function AddPersonScreen() {
     phone: phone,
   }
   const addPerson = () => {
-    // dispatch({ type: 'ADD_NAME', payload: { name: name } })
-    // dispatch({ type: 'ADD_PHONE', payload: { phone: phone } })
-
     realm.write(() => {
       realm.create('Person_Info', values);
     });
@@ -26,8 +23,8 @@ export default function AddPersonScreen() {
 
   return (
     <View>
-      <TextInput style={{ backgroundColor: 'yellow', color: 'white' }} placeholder='İsim Giriniz' placeholderTextColor='white' onChangeText={setName} />
-      <TextInput style={{ backgroundColor: 'blue', color: 'white' }} placeholder='Telefon Numarası Giriniz' keyboardType='phone-pad' placeholderTextColor='white' onChangeText={setPhone} />
+      <TextInput style={{ backgroundColor: 'yellow', color: 'white' }} placeholder='İsim Giriniz' placeholderTextColor='black' onChangeText={setName} />
+      <TextInput style={{ backgroundColor: 'green', color: 'white' }} placeholder='Telefon Numarası Giriniz' placeholderTextColor='black' keyboardType='phone-pad' onChangeText={setPhone} />
       <Button title='Ekle' onPress={addPerson} />
 
     </View>

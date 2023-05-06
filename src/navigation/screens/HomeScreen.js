@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
   const extractor = (_, index) => index.toString();
 
   const renderItems = ({ item, index }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('SendSms')}>
+    <TouchableOpacity onPress={() => navigation.navigate('SendSMS')}>
       <View key={index}>
         <Text>{item.name}</Text>
         <Text>{item.phone}</Text>

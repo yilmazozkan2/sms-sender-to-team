@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function SendSMSScreen() {
+export default function SendScreen() {
   return (
     <View>
-      <Text>SendSMSScreen</Text>
+      <Text>SendScreen</Text>
     </View>
   )
 }
