@@ -23,8 +23,8 @@ export default function AddPersonScreen() {
 
   return (
     <View>
-      <TextInput style={{ backgroundColor: 'yellow', color: 'white' }} placeholder='İsim Giriniz' placeholderTextColor='black' onChangeText={setName} />
-      <TextInput style={{ backgroundColor: 'green', color: 'white' }} placeholder='Telefon Numarası Giriniz' placeholderTextColor='black' keyboardType='phone-pad' onChangeText={setPhone} />
+      <TextInput style={{ backgroundColor: 'white', color: 'black' }} placeholder='İsim Giriniz' placeholderTextColor='black' onChangeText={setName} />
+      <TextInput style={{ backgroundColor: 'white', color: 'black' }} placeholder='Telefon Numarası Giriniz' placeholderTextColor='black' keyboardType='phone-pad' onChangeText={setPhone} />
       <Button title='Ekle' onPress={addPerson} />
 
     </View>
