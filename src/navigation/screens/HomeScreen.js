@@ -1,14 +1,42 @@
 import { View, Text } from 'react-native'
-import React from 'react'
-import PersonList from '../../components/PersonList'
 import { StatusBar } from 'expo-status-bar';
+import { View, Text, FlatList, Button, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import Realm from 'realm';
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen() {
+  // const name = useSelector(s => s.name);
+  // const phone = useSelector(s => s.phone);
+  const [dataSource, setDataSource] = useState();
+  let realm = new Realm();
+  readPersonDB = () => {
+    var mydata = realm.objects('Person_Info');
+    setDataSource(
+      mydata
+    );
+  }
+  const extractor = (_, index) => index.toString();
+
+  const renderItems = ({ item, index }) => (
+    <TouchableOpacity>
+      <View>
+        <Text>{item.name}</Text>
+        <Text>{item.phone}</Text>
+      </View>
+    </TouchableOpacity>
+  );
   return (
-    <View style={{alignItems: 'center', justifyContent:'center', flex: 1}}>
-      <Text onPress={()=>navigation.navigate('PersonScreen')} style={{fontSize: 23}}>Geçiş Yap</Text>
+
+    <View>
       <StatusBar style="auto" />
-      <PersonList/>
+
+      <Button title='Read' onPress={readPersonDB} />
+      <FlatList
+        data={dataSource}
+        keyExtractor={extractor}
+        renderItem={renderItems}
+      />
     </View>
   )
 }
