@@ -9,15 +9,15 @@ const Stack = createNativeStackNavigator();
 const MainStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="SendSMS" component={SendScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerTitle: 'Home'}} />
+        <Stack.Screen name="SendSMS" component={SendScreen} options={{headerTitle: 'Send SMS'}}/>
       </Stack.Navigator>
     );
   }
   const AddPersonStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle}>
-        <Stack.Screen name="AddPerson" component={AddPersonScreen} />
+        <Stack.Screen name="AddPerson" component={AddPersonScreen} options={{headerTitle: 'Add Person'}}/>
       </Stack.Navigator>
     );
   }

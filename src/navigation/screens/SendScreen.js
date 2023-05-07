@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button, Alert } from 'react-native'
+import { View, Text, TextInput, Button, Alert, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Realm from 'realm';
 import * as SMS from 'expo-sms';
@@ -13,6 +13,7 @@ export default function SendScreen({ route }) {
   let realm = new Realm();
   useEffect(() => {
     setPersonID(id)
+    setPhones(phone);
 
     checkAvailability();
   }, [])
@@ -25,10 +26,10 @@ export default function SendScreen({ route }) {
       realm.delete(realm.objects('Person_Info').filtered(`id = ${personID}`))
 
     });
-    Alert.alert('Kişi Başarıyla Silindi.');
+    Alert.alert('user deleted succesfully.');
   }
   const sendSMS = async () => {
-    const { result } = await SMS.sendSMSAsync(
+    await SMS.sendSMSAsync(
       phone, message
     )
   }
