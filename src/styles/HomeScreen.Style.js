@@ -1,5 +1,13 @@
 import { StyleSheet } from "react-native";
 export default StyleSheet.create({
+    view_container:{
+        backgroundColor: '#FEFEFE', 
+        height: 90, 
+        width: 205, 
+        borderRadius: 15, 
+        padding: 5, 
+        marginTop: 5
+    },
     name: {
         fontSize: 20,
         paddingVertical: 5,

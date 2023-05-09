@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import AddPersonScreenStyle from '../../styles/AddPersonScreen.Style'
+import AddScreenStyle from '../../styles/AddScreen/AddScreen.Style'
+
 export default function AddScreenText() {
   return (
-    <View style={AddPersonScreenStyle.view}>
-          <Text style={AddPersonScreenStyle.text}> Add </Text>
-          <Text style={AddPersonScreenStyle.text}> Call </Text>
+    <View style={AddScreenStyle.view}>
+          <Text style={AddScreenStyle.text}> Add </Text>
+          <Text style={AddScreenStyle.text}> Call </Text>
         </View>
   )
 }

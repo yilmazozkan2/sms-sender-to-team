@@ -42,7 +42,7 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
   text_input: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFF',
     color: '#4b3ca7',
     padding: 15,
     marginBottom: 15,

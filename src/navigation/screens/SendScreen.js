@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Realm from 'realm';
 import * as SMS from 'expo-sms';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import SendScreenStyle from '../../styles/SendScreen.Style';
+import SendScreenStyle from '../../styles/SendScreen/SendScreen.Style';
 import TextComponent from '../../components/SendScreen/TextComponent';
 import AlertComponent from '../../components/AlertComponent';
 
@@ -28,15 +28,15 @@ export default function SendScreen({ route }) {
     setIsAvailable(isSmsAvailable);
   }
 
-  //Realm ve personId nin değişikliğine göre bu fonksiyon çağrılır useCallback sayesinde performans katar
-  const deletePerson = useCallback(() => {
+  const deletePerson =() => {
     realm.write(() => {
       realm.delete(realm.objects('Person_Info').filtered(`id = ${personID}`))
 
     });
     AlertComponent('','User deleted successfully');
-  }, [realm, personID])
-
+  }
+  // useCallback mesaj ve telefondaki değişikliğe göre sendSMS fonksiyonunu çalıştıracak
+  // otomatik çalışmayacak
   const sendSMS = useCallback(async() => {
     await SMS.sendSMSAsync(
       phone, message
@@ -48,10 +48,10 @@ export default function SendScreen({ route }) {
       style={SendScreenStyle.img_background}
       source={require(imageUrl)}>
       <View style={SendScreenStyle.view_padding}>
-        <View>
-          <Text style={SendScreenStyle.view_text}>{name}</Text>
-          <Text style={SendScreenStyle.view_text}>{phone}</Text>
-        </View>
+        {/* <View style={SendScreenStyle.view_container}>
+        </View> */}
+          <Text style={SendScreenStyle.name}>{name}</Text>
+
         <TextInput style={SendScreenStyle.text_input} placeholder='Message' placeholderTextColor='black' onChangeText={(e) => setMessage(e)} />
 
         <ScrollView horizontal style={SendScreenStyle.scroll_view} >

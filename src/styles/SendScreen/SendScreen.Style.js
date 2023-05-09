@@ -4,13 +4,10 @@ export default StyleSheet.create({
     paddingHorizontal: 40,
     paddingVertical: 60
   },
-  view_text: {
+  name: {
     color: '#FFF',
     fontSize: 40,
-    paddingTop: 5
-  },
-  scroll_view: {
-    marginTop: 15
+    fontWeight: 'bold'
   },
   img_background: {
     position: 'absolute',
@@ -38,12 +35,13 @@ export default StyleSheet.create({
     marginLeft: 10,
   },
   text_input: {
-    backgroundColor: 'white', 
-    color: '#4b3ca7', 
-    padding: 15, 
-    marginBottom: 15, 
-    borderRadius: 25, 
-    fontSize: 17, 
-    fontFamily: 'RobotoBold'
+    backgroundColor: '#FFF',
+    color: '#4b3ca7',
+    padding: 15,
+    marginBottom: 15,
+    borderRadius: 25,
+    marginTop: 35,
+    fontSize: 17,
   }
+ 
 })
