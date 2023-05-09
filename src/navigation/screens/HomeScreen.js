@@ -10,7 +10,7 @@ export default function HomeScreen({ navigation }) {
 
   const imageUrl = '../../images/back.png';
   const [dataSource, setDataSource] = useState();
-  
+
   const readPersonDB = () => {
     var datas = realm.objects('Person_Info');
     setDataSource(
@@ -32,17 +32,16 @@ export default function HomeScreen({ navigation }) {
     }
   }, [])
 
-  
+
   const extractor = (_, index) => index.toString();
   return (
     <ImageBackground source={require(imageUrl)} style={HomeScreenStyle.img_background}>
+      <StatusBar style="auto" />
       <View style={HomeScreenStyle.view_padding}>
-        <StatusBar style="auto" />
-        
         <FlatList
           data={dataSource}
           keyExtractor={extractor}
-          renderItem={({item,index}) => <RenderItemComponent item={item} index={index} navigation={navigation}/>}
+          renderItem={({ item, index }) => <RenderItemComponent item={item} index={index} navigation={navigation} />}
         />
       </View>
     </ImageBackground>

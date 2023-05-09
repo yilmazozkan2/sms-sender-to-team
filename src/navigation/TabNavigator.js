@@ -8,8 +8,10 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName={'Home'}
+      
       screenOptions={({ route }) => ({
         headerShown:false,
+        
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -25,23 +27,37 @@ const BottomTabNavigator = () => {
         },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
+        tabBarStyle:{
+          height: 75
+
+        },
+        tabBarIconStyle:{
+          marginTop: 5
+        },
+        tabBarLabelStyle:{
+          marginBottom: 10,
+          fontSize: 15,
+          color: 'black',
+          fontWeight: 'bold'
+        }
       })}
 
     >
       <Tab.Screen name="Home" component={MainStackNavigator}
         options={{
-          tabBarLabel: 'Ana Sayfa',
+          tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
-            <Icon name="home" color={color} size={26} />
+            <Icon name="home" color={color} size={35} />
           ),
         }}
       />
       <Tab.Screen name="AddScreen" component={AddPersonStackNavigator}
       options={{
-        tabBarLabel: 'Kişi Ekle',
+        tabBarLabel: 'Add',
         tabBarIcon: ({ color }) => (
-          <Icon name="user" color={color} size={26} />
+          <Icon name="user" color={color} size={35} />
         ),
+        
       }}
       />
     </Tab.Navigator>

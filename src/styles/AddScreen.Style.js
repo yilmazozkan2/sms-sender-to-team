@@ -1,20 +1,21 @@
 import { StyleSheet, Dimensions } from "react-native";
+
 export default StyleSheet.create({
   view: {
     flexGrow: 1,
     flexDirection: 'row',
   },
   view_padding: {
-    paddingHorizontal: 40,
-    paddingVertical: 60
+    paddingHorizontal: 20,
+    paddingVertical: 40
   },
   view_text: {
     color: '#FFF',
-    fontSize: 40,
-    paddingTop: 5
+    fontSize: 30,
+    paddingTop: 10
   },
   scroll_view: {
-    marginTop: 15
+    marginTop: 10
   },
   img_background: {
     position: 'absolute',
@@ -26,28 +27,30 @@ export default StyleSheet.create({
   view_icon: {
     alignItems: "center",
     justifyContent: "center",
-    height: 66,
-    width: 66,
-    borderRadius: 50,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     backgroundColor: "#ff5c83",
-    marginHorizontal: 22
+    marginHorizontal: 10
   },
   view_icon2: {
     alignItems: "center",
     justifyContent: "center",
-    height: 66,
-    width: 66,
-    borderRadius: 50,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     backgroundColor: "#bb32fe",
     marginLeft: 10,
   },
   text_input: {
     backgroundColor: '#FFF',
-    color: '#4b3ca7',
-    padding: 15,
-    marginBottom: 15,
+    color: 'black',
+    padding: 10,
+    marginBottom: 10,
+    marginTop:10,
     borderRadius: 25,
-    fontSize: 17,
+    fontSize: 16,
+    textDecorationLine: 'none'
   },
   phone_input:{
     borderRadius: 25
