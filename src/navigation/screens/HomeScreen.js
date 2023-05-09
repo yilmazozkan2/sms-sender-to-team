@@ -14,10 +14,7 @@ export default function HomeScreen({ navigation }) {
       datas
     );
   }
-  useEffect(() => {
-    readPersonDB();
     
-  }, [dataSource])
 
   const extractor = (_, index) => index.toString();
   const renderItems = ({ item, index }) => (
