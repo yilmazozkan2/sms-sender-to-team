@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, FlatList, ImageBackground } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import Realm from 'realm';
 import HomeScreenStyle from '../../styles/HomeScreen.Style';
@@ -14,7 +14,7 @@ export default function HomeScreen({ navigation }) {
       datas
     );
   }
-    
+  
 
   const extractor = (_, index) => index.toString();
   const renderItems = ({ item, index }) => (
@@ -30,9 +30,9 @@ export default function HomeScreen({ navigation }) {
     <ImageBackground source={require('../../images/back.png')} style={{ width: '100%', height: '100%' }}>
       <View style={{ paddingHorizontal: 40 }}>
         <StatusBar style="auto" />
-        {/* <TouchableOpacity onPress={readPersonDB} style={{ paddingTop: 60, justifyContent: 'center' }}>
+        <TouchableOpacity onPress={readPersonDB} style={{ paddingTop: 60, justifyContent: 'center' }}>
           <Text style={{ fontSize: 40, color: '#522289', fontFamily: 'RobotoBold' }}>Kişileri Getir</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
         <FlatList
           data={dataSource}
           keyExtractor={extractor}
