@@ -1,21 +1,19 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 export default StyleSheet.create({
-    view_container:{
-        backgroundColor: '#FEFEFE', 
-        height: 90, 
-        width: 205, 
-        borderRadius: 15, 
-        padding: 5, 
-        marginTop: 5
+    view_container: {
+        backgroundColor: '#FEFEFE',
+        height: 100,
+        width: Dimensions.get('window').width / 1.5,
+        borderRadius: 15,
+        padding: 5,
+        marginTop: 5,
+
     },
     name: {
-        fontSize: 20,
+        fontSize: 25,
         paddingVertical: 5,
         paddingLeft: 5,
         color: '#a2a2db',
-    },
-    phone: {
-        color: '#522289'
     },
     view_padding: {
         paddingHorizontal: 40,

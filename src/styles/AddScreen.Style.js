@@ -48,15 +48,6 @@ export default StyleSheet.create({
     marginBottom: 15,
     borderRadius: 25,
     fontSize: 17,
-    fontFamily: 'RobotoBold'
-  },
-  text:{
-    color: "#FFF",
-    fontFamily: "RobotoRegular",
-    fontSize: 17,
-    width: 60,
-    textAlign: 'center',
-    marginLeft: 25,
   },
   phone_input:{
     borderRadius: 25

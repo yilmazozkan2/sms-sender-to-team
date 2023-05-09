@@ -3,8 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Realm from 'realm';
 import * as SMS from 'expo-sms';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import SendScreenStyle from '../../styles/SendScreen/SendScreen.Style';
-import TextComponent from '../../components/SendScreen/TextComponent';
+import SendScreenStyle from '../../styles/SendScreen.Style';
 import AlertComponent from '../../components/AlertComponent';
 
 export default function SendScreen({ route }) {
@@ -48,9 +47,10 @@ export default function SendScreen({ route }) {
       style={SendScreenStyle.img_background}
       source={require(imageUrl)}>
       <View style={SendScreenStyle.view_padding}>
-        {/* <View style={SendScreenStyle.view_container}>
-        </View> */}
+        <View style={SendScreenStyle.view_name_container}>
           <Text style={SendScreenStyle.name}>{name}</Text>
+           
+        </View>
 
         <TextInput style={SendScreenStyle.text_input} placeholder='Message' placeholderTextColor='black' onChangeText={(e) => setMessage(e)} />
 
@@ -65,7 +65,6 @@ export default function SendScreen({ route }) {
           </View>
 
         </ScrollView>
-        <TextComponent />
       </View>
     </ImageBackground>
   );

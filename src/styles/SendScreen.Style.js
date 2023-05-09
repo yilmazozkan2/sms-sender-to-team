@@ -4,8 +4,11 @@ export default StyleSheet.create({
     paddingHorizontal: 40,
     paddingVertical: 60
   },
+  view_name_container:{
+    alignItems: "center",
+  },
   name: {
-    color: '#FFF',
+    color: '#a2a2db',
     fontSize: 40,
     fontWeight: 'bold'
   },
@@ -36,12 +39,12 @@ export default StyleSheet.create({
   },
   text_input: {
     backgroundColor: '#FFF',
-    color: '#4b3ca7',
+    color: '#000',
     padding: 15,
     marginBottom: 15,
     borderRadius: 25,
-    marginTop: 35,
+    marginTop: 15,
     fontSize: 17,
   }
- 
+
 })

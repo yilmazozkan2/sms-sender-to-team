@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import Realm from 'realm';
 import PhoneInput from 'react-native-phone-number-input';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import AddScreenStyle from '../../styles/AddScreen/AddScreen.Style';
-import TextComponent from '../../components/AddScreen/TextComponent';
+import AddScreenStyle from '../../styles/AddScreen.Style';
 import {AlertComponent} from '../../components/AlertComponent';
+
 
 export default function AddPersonScreen() {
   const [name, setName] = useState("");
@@ -50,8 +50,6 @@ export default function AddPersonScreen() {
             <Icon name="phone" color="white" size={32} />
           </View>
         </ScrollView>
-        
-        <TextComponent/>
       </View>
     </ImageBackground>
   )
