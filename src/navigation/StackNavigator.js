@@ -9,15 +9,15 @@ const Stack = createNativeStackNavigator();
 const MainStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerTitle: 'Home'}} />
-        <Stack.Screen name="SendSMS" component={SendScreen} options={{headerTitle: 'Send SMS'}}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}} />
+        <Stack.Screen name="SendSMS" component={SendScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     );
   }
   const AddPersonStackNavigator = () => {
     return (
-      <Stack.Navigator screenOptions={screenOptionStyle}>
-        <Stack.Screen name="AddPerson" component={AddPersonScreen} options={{headerTitle: 'Add Person'}}/>
+      <Stack.Navigator screenOptions={screenOptionStyle} >
+        <Stack.Screen name="AddPerson" component={AddPersonScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     );
   }
@@ -25,6 +25,7 @@ const MainStackNavigator = () => {
 const screenOptionStyle = {
     headerStyle: {
         backgroundColor: "#9AC4F8",
+        
     },
     headerTintColor: "white",
     headerBackTitle: "Back",

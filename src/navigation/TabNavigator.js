@@ -40,7 +40,7 @@ const BottomTabNavigator = () => {
       options={{
         tabBarLabel: 'Kişi Ekle',
         tabBarIcon: ({ color }) => (
-          <Icon name="plus" color={color} size={26} />
+          <Icon name="user" color={color} size={26} />
         ),
       }}
       />
