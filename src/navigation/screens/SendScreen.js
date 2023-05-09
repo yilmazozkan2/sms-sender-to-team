@@ -1,44 +1,47 @@
-import { View, Text, TextInput, Button, Alert, TouchableOpacity, TouchableHighlight, ImageBackground, ScrollView, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TextInput, ImageBackground, ScrollView } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import Realm from 'realm';
 import * as SMS from 'expo-sms';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SendScreenStyle from '../../styles/SendScreen.Style';
-import SendScreenText from '../../components/SendScreen/SendScreenText';
+import TextComponent from '../../components/SendScreen/TextComponent';
+import AlertComponent from '../../components/AlertComponent';
 
 export default function SendScreen({ route }) {
 
+  const imageUrl = '../../images/back2.png';
   const { name, phone, id } = route.params.item
   const [message, setMessage] = useState('');
   const [personID, setPersonID] = useState('');
   const [isAvailable, setIsAvailable] = useState(false);
-  const imageUrl = '../../images/back2.png';
 
   let realm = new Realm();
 
   useEffect(() => {
     setPersonID(id)
-
     checkAvailability();
+
   }, [])
+
   const checkAvailability = async () => {
     const isSmsAvailable = await SMS.isAvailableAsync();
     setIsAvailable(isSmsAvailable);
   }
-  //id nin değişmesine göre bu fonksiyon çağrılır useCallback sayesinde performans katar
+
+  //Realm ve personId nin değişikliğine göre bu fonksiyon çağrılır useCallback sayesinde performans katar
   const deletePerson = useCallback(() => {
     realm.write(() => {
       realm.delete(realm.objects('Person_Info').filtered(`id = ${personID}`))
 
     });
-    Alert.alert('User Deleted Succesfully.');
+    AlertComponent('','User deleted successfully');
   }, [realm, personID])
 
-  const sendSMS = async() => {
+  const sendSMS = useCallback(async() => {
     await SMS.sendSMSAsync(
       phone, message
     )
-  };
+  }, [phone, message]);
   
   return (
     <ImageBackground
@@ -62,7 +65,7 @@ export default function SendScreen({ route }) {
           </View>
 
         </ScrollView>
-        <SendScreenText />
+        <TextComponent />
       </View>
     </ImageBackground>
   );

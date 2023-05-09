@@ -36,7 +36,7 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen name="AddPersonScreen" component={AddPersonStackNavigator}
+      <Tab.Screen name="AddScreen" component={AddPersonStackNavigator}
       options={{
         tabBarLabel: 'Kişi Ekle',
         tabBarIcon: ({ color }) => (

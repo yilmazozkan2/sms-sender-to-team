@@ -1,7 +1,7 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
-import AddPersonScreen from './screens/AddPersonScreen';
+import AddScreen from './screens/AddScreen';
 import SendScreen from './screens/SendScreen';
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +17,7 @@ const MainStackNavigator = () => {
   const AddPersonStackNavigator = () => {
     return (
       <Stack.Navigator screenOptions={screenOptionStyle} >
-        <Stack.Screen name="AddPerson" component={AddPersonScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="AddPerson" component={AddScreen} options={{headerShown:false}}/>
       </Stack.Navigator>
     );
   }

@@ -4,13 +4,13 @@ import Realm from 'realm';
 import PhoneInput from 'react-native-phone-number-input';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AddPersonScreenStyle from '../../styles/AddPersonScreen.Style';
-import AddScreenText from '../../components/AddScreen/AddScreenText';
+import TextComponent from '../../components/AddScreen/TextComponent';
 import {AlertComponent} from '../../components/AlertComponent';
 
 export default function AddPersonScreen() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const imageUrl = '../../images/back.png';
+  const imageUrl = '../../images/back2.png';
 
   let realm = new Realm();
 
@@ -51,7 +51,7 @@ export default function AddPersonScreen() {
           </View>
         </ScrollView>
         
-        <AddScreenText/>
+        <TextComponent/>
       </View>
     </ImageBackground>
   )
