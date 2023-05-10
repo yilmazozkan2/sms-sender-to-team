@@ -2,20 +2,22 @@ import { Dimensions, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   view_padding: {
-    paddingHorizontal: 20,
-    paddingVertical: 40
+    paddingHorizontal: 30,
+    paddingVertical: 60
   },
   view_name_container:{
     alignItems: "center",
     marginBottom: 20,
   },
   name: {
-    color: '#E6E6FA',
+    color: '#333',
     fontSize: 20,
+    fontWeight: 'bold',
     textAlign: 'center'
   },
   img_background: {
     position: 'absolute',
+    backgroundColor: 'white',
     left: 0,
     top: 0,
     width: Dimensions.get('window').width,

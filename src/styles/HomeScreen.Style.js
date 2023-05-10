@@ -31,6 +31,8 @@ export default StyleSheet.create({
     },
     img_background: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+    backgroundColor: 'white',
+
     }
 })

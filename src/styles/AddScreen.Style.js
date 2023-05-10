@@ -6,8 +6,8 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   view_padding: {
-    paddingHorizontal: 20,
-    paddingVertical: 40
+    paddingHorizontal: 30,
+    paddingVertical: 60
   },
   view_text: {
     color: '#FFF',
@@ -18,6 +18,7 @@ export default StyleSheet.create({
     marginTop: 10
   },
   img_background: {
+    backgroundColor: 'white',
     position: 'absolute',
     left: 0,
     top: 0,

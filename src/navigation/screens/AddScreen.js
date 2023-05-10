@@ -7,7 +7,7 @@ import NameInputComponent from '../../components/AddScreen/NameInputComponent';
 import PhoneInputComponent from '../../components/AddScreen/PhoneInputComponent';
 import IconsComponent from '../../components/AddScreen/IconsComponent';
 import BackIconComponent from '../../components/BackIconComponent';
-
+import * as Linking from "expo-linking";
 
 export default function AddPersonScreen({ navigation }) {
   const [name, setName] = useState("");
@@ -24,11 +24,23 @@ export default function AddPersonScreen({ navigation }) {
     phone: phone,
   }
 
+  const triggerCall = () => {
+    if (phone.length > 10) {
+      Linking.openURL(`tel:${phone}`);
+    } else {
+      AlertComponent('', 'Phone number is not valid.');
+    }
+  }
+
   const addPerson = () => {
-    realm.write(() => {
-      realm.create('Person_Info', values);
-    });
-    AlertComponent('', 'User Added Successfully.');
+    if (name.length > 2 && phone.length > 10) {
+      realm.write(() => {
+        realm.create('Person_Info', values);
+      });
+      AlertComponent('', 'User Added Successfully.');
+    } else {
+      AlertComponent('', 'Please fill all fields.');
+    }
   }
 
   return (
@@ -37,8 +49,8 @@ export default function AddPersonScreen({ navigation }) {
         <BackIconComponent navigation={navigation} />
         <NameInputComponent name={name} setName={setName} />
         <PhoneInputComponent phone={phone} setPhone={setPhone} />
-        <IconsComponent addPerson={addPerson}/>
-        
+        <IconsComponent addPerson={addPerson} triggerCall={triggerCall} />
+
       </View>
     </ImageBackground>
   )

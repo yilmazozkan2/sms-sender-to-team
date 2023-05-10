@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Realm from 'realm';
 import * as SMS from 'expo-sms';
 import SendScreenStyle from '../../styles/SendScreen.Style';
-import AlertComponent from '../../components/AlertComponent';
 import SendScreenIconsComponent from '../../components/SendScreen/SendScreenIconsComponent';
 import MessageInputComponent from '../../components/SendScreen/MessageInputComponent';
 import NameTextComponent from '../../components/SendScreen/NameTextComponent';
@@ -29,13 +28,12 @@ export default function SendScreen({ route, navigation }) {
     const isSmsAvailable = await SMS.isAvailableAsync();
     setIsAvailable(isSmsAvailable);
   }
-
   const deletePerson = () => {
     realm.write(() => {
-      realm.delete(realm.objects('Person_Info').filtered(`id = ${personID}`))
+      realm.delete(realm.objects('Person_Info').filtered('id = ' + personID));
 
     });
-    AlertComponent('', 'User deleted successfully');
+    navigation.goBack();
   }
   // useCallback mesaj ve telefondaki değişikliğe göre sendSMS fonksiyonunu çalıştıracak
   // otomatik çalışmayacak
