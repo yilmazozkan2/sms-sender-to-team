@@ -4,8 +4,8 @@ In this application, sending sms to colleagues using expo-cli and Realm MongoDB 
 **npm version i'm using**  
 `npm install -g npm@6`  
 **Major errors encountered in the project**  
-When run with normal expo, it could not recognize third party library like expo realm, so we introduced it to expo development client.  
-`npx expo run:android -d` command solved missing realm constructor did you pod install error  
-We also use this command while running the application  
-[Error: Exception in HostFunction: Realm at path '/data/data/com.yilmazozkan2.smssendertoteam/files/default.realm' already opened with a -different schema mode.] Realm.open was not used in the project because the error message originates from Realm.open.  
-Touching TextInput opens keyboard and ImageBackground slides up. The problem is that Dimension was used for width and height related to ---style and the sliding problem was solved.
+- When run with normal expo, it could not recognize third party library like expo realm, so we introduced it to expo development client.  
+- `npx expo run:android -d` command solved missing realm constructor did you pod install error  
+- We also use this command while running the application  
+- [Error: Exception in HostFunction: Realm at path '/data/data/com.yilmazozkan2.smssendertoteam/files/default.realm' already opened with a -different schema mode.] Realm.open was not used in the project because the error message originates from Realm.open.  
+- Touching TextInput opens keyboard and ImageBackground slides up. The problem is that Dimension was used for width and height related to style and the sliding problem was solved.
