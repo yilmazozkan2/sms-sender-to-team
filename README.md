@@ -1,7 +1,9 @@
 # sms-sender-to-team
 In this application, sending sms to colleagues using expo-cli and Realm MongoDB database was implemented.
 ![Capture3](https://github.com/yilmazozkan2/sms-sender-to-team/assets/52213548/3718d828-e689-4e55-a385-84a013d35970)
+**npm version i'm using**  
 `npm install -g npm@6`  
+**Major errors encountered in the project**  
 When run with normal expo, it could not recognize third party library like expo realm, so we introduced it to expo development client.  
 `npx expo run:android -d` command solved missing realm constructor did you pod install error  
 We also use this command while running the application  
